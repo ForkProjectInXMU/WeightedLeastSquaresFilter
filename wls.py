@@ -10,7 +10,7 @@ def process_difference_operator(difference_operator, lambda_, alpha, epsilon):
     return difference_operator
 
 
-def wls_filter(L, lambda_=0.35, alpha=1.2, epsilon=1e-4):
+def wls_filter(L, lambda_=2, alpha=2, epsilon=1e-4):
     # Get log-luminance
     L_log = np.log(L.astype(np.float64) + 1e-10)
 
@@ -44,7 +44,7 @@ def wls_filter(L, lambda_=0.35, alpha=1.2, epsilon=1e-4):
     N = L.size
     C = L.shape[1]
 
-    row = np.zeros(5*N)
+    row = np.zeros(5*N, 'uint32')
     col = np.zeros_like(row)
     data = np.zeros_like(row)
 
